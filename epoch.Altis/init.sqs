@@ -1,0 +1,5 @@
+[] execVM "outlw_magRepack\MagRepack_init_sv.sqf";
+[] execVM "IgiLoad\IgiLoadInit.sqf";
+[] execVM "loadout\loadout.sqf";
+[] execVM "scripts\fn_selfActions.sqf";
+[] execVM "scripts\effect.sqf";

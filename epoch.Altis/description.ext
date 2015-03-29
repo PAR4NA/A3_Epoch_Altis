@@ -1,0 +1,72 @@
+#include "infiSTAR_AdminMenu.hpp"
+author = "Epoch Team - Hosted by SURVIVORS BR";
+class Header
+{
+ gameType = Sandbox;
+ minPlayers = 1;
+ maxPlayers = 100;
+};
+respawn = "BASE";
+respawnDelay = 600;
+respawnDialog = 0;
+
+onLoadMission= "Epoch";
+OnLoadIntro = "Bem Vindo ao Epoch Mod - Hosted By SURVIVORS BR";
+loadScreen = "scripts\images\loadScreen.paa";
+OnLoadIntroTime = False;
+OnLoadMissionTime = False;
+onLoadName = "Epoch Mod";
+disabledAI = true;
+scriptedPlayer = 1;
+disableChannels[]={0,1,2,6};
+enableItemsDropping = 0;
+briefing = 0;
+debriefing = 0;
+enableDebugConsole = 0;
+joinUnassigned = 0;
+respawnOnStart = 0;
+forceRotorLibSimulation = 1;
+
+corpseManagerMode = 1;
+corpseLimit = 10;
+corpseRemovalMinTime = 1200;
+corpseRemovalMaxTime = 3600;
+
+wreckManagerMode = 1;
+wreckLimit = 2;
+wreckRemovalMinTime = 60;
+wreckRemovalMaxTime = 120;
+
+class CfgRemoteExecCommands
+{
+	// Class used in respawnTemplates entry
+	class deploy
+	{
+		// Function or script executed upon death. Parameters passed into it are the same as are passed into onPlayerKilled.sqf file
+		onPlayerKilled = "scripts\fn_selfActions.sqf";
+		// Function or script executed upon respawn. Parameters passed into it are the same as are passed into onPlayerRespawn.sqf file
+		onPlayerRespawn = "scripts\fn_selfActions.sqf";
+	};
+};
+
+#include "ZHB\ZHudBuilder.hpp"
+class RscTitles
+{
+    #include "ZHB\ZHud.hpp"
+};
+class CfgFunctions {
+    #include "ZHB\ZHB_Functions.hpp"
+};
+
+#include "ZEVMission\ZEVMissionSounds.hpp"
+#include "outlw_magRepack\MagRepack_config.hpp"
+
+class CfgEpochClient
+{
+	buildingNearbyMilitary = 0; //1 to allow building nearby
+	buildingNearbyMilitaryRange = 300; //Define radius of blocked area
+
+	buildingRequireJammer = 0; // 1 = to allow building without a jammer 
+	buildingCountLimit = 150; // how many objects can be built within range of a jammer 
+	buildingJammerRange = 45; // jammer range in meters 
+};
